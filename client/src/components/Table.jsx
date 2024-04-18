@@ -1,6 +1,11 @@
 import TableRow from "./TableRow";
 
-const Table = ({handleAddRows,rows}) => {
+const Table = ({handleAddRows,rows,setRows}) => {
+    const handleInputChange = (id, propName, value) => {
+      const temp = [...rows];
+      temp[id] = {...rows[id], [propName]: value }
+      setRows(temp);
+      };
     return ( 
         <table className="max-w-2xl select-none bg-white border mx-auto rounded-md">
         <thead>
@@ -29,7 +34,7 @@ const Table = ({handleAddRows,rows}) => {
             </th>
           </tr>
         </thead>
-        <tbody>{rows.map((val,index) => <TableRow id={index} studentName={val.studentName} rollNo={val.rollNo} stuClass={val.stuClass} weight={val.weight} height={val.height}/>)}</tbody>
+        <tbody>{rows.map((val,index) => <TableRow key={index} id={index} handleInputChange={handleInputChange} studentName={val.studentName} rollNo={val.rollNo} stuClass={val.stuClass} weight={val.weight} height={val.height}/>)}</tbody>
       </table>
      );
 }
