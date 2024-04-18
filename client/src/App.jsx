@@ -8,7 +8,7 @@ function App() {
     id: uuidv4(),
     studentName: "",
     rollNo: 0,
-    class: 0,
+    class: "",
     weight: 0,
     height: 0
   };
@@ -17,6 +17,7 @@ function App() {
   const handleAddRows = () => {
     setRows([...rows, addRow]);
   };
+  console.log(rows);
   // console.log(rows);
   
 
