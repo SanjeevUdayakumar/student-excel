@@ -12,5 +12,8 @@
     "express"
   ],
   "author": "sanjeev",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }

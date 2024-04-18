@@ -21,12 +21,13 @@ const Table = ({handleAddRows,rows,setRows}) => {
             <th className="table-title w-[70px] relative ">
               Height
               {/* add row icon */}
-              <div onClick={handleAddRows} className="w-5 h-5 flex items-center font-bold text-white bg-black bg-opacity-40 justify-center rounded-full absolute top-4 right-0 left-[62px] cursor-pointer">
+              <div onClick={handleAddRows} title="Add row" className="w-5 h-5 flex items-center font-bold text-white bg-black bg-opacity-40 justify-center rounded-full absolute top-4 right-0 left-[62px] cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1em"
                   height="1em"
                   viewBox="0 0 24 24"
+                  title="Add Row"
                 >
                   <path
                     fill="currentColor"
@@ -38,7 +39,7 @@ const Table = ({handleAddRows,rows,setRows}) => {
             </th>
           </tr>
         </thead>
-        <tbody>{rows.map((val,index) => <TableRow key={index} id={index} handleInputChange={handleInputChange} studentName={val.studentName} rollNo={val.rollNo} stuClass={val.class} weight={val.weight} height={val.height}/>)}</tbody>
+        <tbody className="select-none">{rows.map((val,index) => <TableRow key={index} id={index} handleInputChange={handleInputChange} studentName={val.studentName} rollNo={val.rollNo} stuClass={val.class} weight={val.weight} height={val.height}/>)}</tbody>
       </table>
      );
 }

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import TheHeader from "./components/TheHeader";
 import Table from "./components/Table";
-import { v4 as uuidv4 } from 'uuid';
-
+// Todo list
+// -- Add row in the table
+// -- edit row in the table
+// -- validate the input given by user
+// -- create an api to get the input from user and store it in database (Node js,MySql)
+// -- Retrieve data from database and display it has an table
 function App() {
   const addRow = {
-    id: uuidv4(),
     studentName: "",
     rollNo: 0,
     class: "",
@@ -17,8 +20,6 @@ function App() {
   const handleAddRows = () => {
     setRows([...rows, addRow]);
   };
-  console.log(rows);
-  // console.log(rows);
   
 
   return (
