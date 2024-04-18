@@ -5,3 +5,9 @@
 .table-title{
     @apply border-2 border-[#135D66] p-2 text-[#135D66];
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
