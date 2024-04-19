@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .table-title{
-    @apply border-2 border-[#135D66] p-2 text-[#135D66];
+    @apply border-2 p-2 border-[#135D66] text-[#135D66];
 }
 
 input::-webkit-outer-spin-button,
