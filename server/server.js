@@ -4,18 +4,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let arr = [];
-app.get("/", (req, res) => {
-  res.send(JSON.stringify(arr));
-});
-
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
 
 import mysql from "mysql2";
 import dotenv from "dotenv";
-import { saveToDb } from "./database/db.js";
+import { getData, saveToDb } from "./database/db.js";
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -24,10 +19,14 @@ var con = mysql.createConnection({
   database:  dotenv.config().parsed.DB_NAME
 });
 
-con.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+app.get("/", async(req, res) => {
+    const data = await getData(con) ;
+   setTimeout(()=>{
+    console.log(data);
+    res.send(JSON.stringify(data));
+   },3000)
+  });
+  
 
 app.post("/save", (req, res) => {
   saveToDb(con,req.body);
