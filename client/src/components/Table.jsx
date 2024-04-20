@@ -11,7 +11,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
     setRows(temp);
   };
   const sendToServer = async (rows) => {
-    // console.log(data);
+    console.log(rows);
     const response = await fetch("http://localhost:3000/save", {
       method: "post",
       headers: {
@@ -24,7 +24,6 @@ const Table = ({ handleAddRows, rows, setRows }) => {
       alert("Your request has been posted");
       navigate("/");
     }
-    console.log(response);
   };
 
   return (
@@ -80,7 +79,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
       <Link
         to={"/save"}
         type="button"
-        onClick={sendToServer(rows)}
+        onClick={() => sendToServer(rows)}
         className="me-44 h-fit px-4 py-2 bg-blue-400 text-white font-medium rounded hover:bg-blue-500"
       >
         Save

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TheHeader from "./components/TheHeader";
 import Table from "./components/Table";
+import { Route, Routes } from "react-router-dom";
 // Todo list
 // -- Add row in the table
 // -- edit row in the table
@@ -26,6 +27,10 @@ function App() {
     <>
       <TheHeader />
       <Table handleAddRows={handleAddRows} rows={rows} setRows={setRows} />
+      {/* <Routes>
+      <Route path="/" element={ <Table handleAddRows={handleAddRows} rows={rows} setRows={setRows} />} />
+      <Route path="/save" element={ <Table handleAddRows={handleAddRows} rows={rows} setRows={setRows} />} />
+      </Routes> */}
     </>
   );
 }
