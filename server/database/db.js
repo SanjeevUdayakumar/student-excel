@@ -12,9 +12,9 @@ export const saveToDb = (con,data) => {
     });
   });
 };
-
-export const getData =  (con) => {
-     con.connect(function(err) {
+// returning data before retrieving the data
+export const getData = async (con) => {
+    await con.connect(function(err) {
         if (err) throw err;
         con.query("SELECT * FROM Student_data", (err, result, fields) =>{
           if (err) throw err;

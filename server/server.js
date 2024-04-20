@@ -21,10 +21,8 @@ var con = mysql.createConnection({
 
 app.get("/", async(req, res) => {
     const data = await getData(con) ;
-   setTimeout(()=>{
     console.log(data);
     res.send(JSON.stringify(data));
-   },3000)
   });
   
 
