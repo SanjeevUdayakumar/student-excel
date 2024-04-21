@@ -22,8 +22,11 @@ function App() {
     setRows([...rows, addRow]);
   };
   const handleDeleteRow = (id) => {
-    const updatedRows = rows.filter((row,index) => index != id )
-    setRows(updatedRows);
+    if(confirm('Can I delete the row')){
+      const updatedRows = rows.filter((row,index) => index != id )
+      setRows(updatedRows);
+    }
+   
   };
   useEffect(() => {
     const fetchApi = async () => {
