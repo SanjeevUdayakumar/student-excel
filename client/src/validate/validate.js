@@ -21,11 +21,12 @@ export const rollNumberCheck = function (rollNumber) {
 
 export const stuClassCheck = function (studClass) {
   if(studClass == '') return false;
-  if (studClass.length == 3 || typeof studClass == "number") {
+  if(studClass > 12) return true
+    studClass +='';
+  if (studClass.length >= 1 && studClass.length <= 3) {
     return false;
   } else {
     return true;
-    // return "Invalid input class must of character 1 - 3";
   }
 };
 

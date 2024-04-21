@@ -9,7 +9,6 @@ const TableRow = ({
   height,
   weight,
 }) => {
-  console.log(userNameCheck(studentName));
   return (
     <tr>
       <td className="table-title p-2">{id + 1}</td>

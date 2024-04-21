@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TheHeader from "./components/TheHeader";
 import Table from "./components/Table";
 import { Route, Routes } from "react-router-dom";
@@ -21,7 +21,16 @@ function App() {
   const handleAddRows = () => {
     setRows([...rows, addRow]);
   };
-  
+  useEffect(()=>{
+      const fetchApi = async() =>{
+        const res = await fetch('http://localhost:3000/')
+        const fetchedData = await res.json()
+        if(fetchedData.length != 0){
+          setRows(fetchedData)
+        }
+      };
+     fetchApi();
+  },[])
 
   return (
     <>
