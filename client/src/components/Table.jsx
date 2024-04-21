@@ -12,7 +12,6 @@ const Table = ({ handleAddRows, rows, setRows }) => {
   };
   const navigate = useNavigate();
   const sendToServer = async (rows) => {
-    console.log(rows);
     const response = await fetch("http://localhost:3000/save", {
       method: "post",
       headers: {
@@ -28,7 +27,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
   };
 
   return (
-    <main className="flex">
+    <main className="flex mt-20">
       <table className="max-w-fit select-none bg-white border mx-auto rounded-md">
         <thead>
           <tr>
@@ -60,6 +59,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
               </div>
               {/* add row icon end */}
             </th>
+            
           </tr>
         </thead>
         <tbody className="select-none">
