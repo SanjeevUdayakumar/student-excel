@@ -27,8 +27,8 @@ const Table = ({ handleAddRows, rows, setRows }) => {
   };
 
   return (
-    <main className="flex mt-20">
-      <table className="max-w-fit select-none bg-white border mx-auto rounded-md">
+    <main className="flex mt-20 space-x-10 justify-center">
+      <table className="max-w-xl select-none bg-white border rounded-md">
         <thead>
           <tr>
             <th className="table-title p-2 w-[30px]">Sno</th>
@@ -81,7 +81,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
         to={"/save"}
         type="button"
         onClick={() => sendToServer(rows)}
-        className="me-44 h-fit px-4 py-2 bg-blue-400 text-white font-medium rounded hover:bg-blue-500"
+        className="w-fit h-fit px-4 py-2 bg-blue-400 text-white font-medium rounded hover:bg-blue-500"
       >
         Save
       </Link>
