@@ -19,14 +19,20 @@ var con = mysql.createConnection({
   database:  dotenv.config().parsed.DB_NAME
 });
 
-app.get("/", async(req, res) => {
-    const data = await getData(con) ;
-    console.log(data);
-    res.send(JSON.stringify(data));
-  });
-  
+// app.get("/", async(req, res) => {
+//     const data = await getData(con) ;
+//     console.log(data);
+//     res.send(JSON.stringify(data));
+//   });
+con.connect();
+
+app.get('/', (req, res) => {
+   getData(con,res)
+});
 
 app.post("/save", (req, res) => {
   saveToDb(con,req.body);
+  res.json('Saved Successfully')
+  res.status(200)
   console.log("saved");
 });

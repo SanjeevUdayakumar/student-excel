@@ -1,6 +1,6 @@
 import TableRow from "./TableRow";
 import { isNumeric } from "../helpers/checkIsNum";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Table = ({ handleAddRows, rows, setRows }) => {
   const handleInputChange = (id, propName, value) => {
     if (isNumeric(value)) {
@@ -10,6 +10,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
     temp[id] = { ...rows[id], [propName]: value };
     setRows(temp);
   };
+  const navigate = useNavigate();
   const sendToServer = async (rows) => {
     console.log(rows);
     const response = await fetch("http://localhost:3000/save", {
@@ -21,7 +22,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
       body: JSON.stringify(rows),
     });
     if (response.status === 200) {
-      alert("Your request has been posted");
+      alert("Your data had been saved successfully");
       navigate("/");
     }
   };

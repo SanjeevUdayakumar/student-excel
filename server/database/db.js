@@ -13,15 +13,15 @@ export const saveToDb = (con,data) => {
   });
 };
 // returning data before retrieving the data
-export const getData = async (con) => {
-    await con.connect(function(err) {
-        if (err) throw err;
-        con.query("SELECT * FROM Student_data", (err, result, fields) =>{
-          if (err) throw err;
-          console.log(result);
-          return result;
-        });
-      });
+export const getData = (con,res) => {
+  con.query("SELECT * FROM Student_data", function(error, results){
+    if ( error ){
+        res.status(400).send('Error in database operation');
+    } else {
+       res.status(200);
+        res.send(results);
+    }
+});
   };
   
 const deleteData = (con)=>{
