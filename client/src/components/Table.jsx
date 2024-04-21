@@ -1,7 +1,7 @@
 import TableRow from "./TableRow";
 import { isNumeric } from "../helpers/checkIsNum";
 import { Link, useNavigate } from "react-router-dom";
-const Table = ({ handleAddRows, rows, setRows }) => {
+const Table = ({ handleAddRows, rows, setRows,handleDeleteRow }) => {
   const handleInputChange = (id, propName, value) => {
     if (isNumeric(value)) {
       value = parseInt(value);
@@ -68,6 +68,7 @@ const Table = ({ handleAddRows, rows, setRows }) => {
               key={index}
               id={index}
               handleInputChange={handleInputChange}
+              handleDeleteRow={handleDeleteRow}
               studentName={val.studentName}
               rollNo={val.rollNo}
               stuClass={val.class}
