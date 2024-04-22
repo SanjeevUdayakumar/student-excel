@@ -1,4 +1,6 @@
-export const userNameCheck = function (studentName) {
+import { isNumeric } from "../helpers/checkIsNum";
+
+export const userNameCheck = function (studentName:string) {
   if(studentName == ''){
    return false;
   }
@@ -10,7 +12,7 @@ export const userNameCheck = function (studentName) {
   }
 };
 
-export const rollNumberCheck = function (rollNumber) {
+export const rollNumberCheck = function (rollNumber:number) {
   if (rollNumber >= 0 && rollNumber <= 9999) {
     return false;
   } else {
@@ -19,9 +21,9 @@ export const rollNumberCheck = function (rollNumber) {
   }
 };
 
-export const stuClassCheck = function (studClass) {
+export const stuClassCheck = function (studClass:string ) {
   if(studClass == '') return false;
-  if(studClass > 12) return true
+  // if( isNumeric(studClass) && studClass > 12) return true
     studClass +='';
   if (studClass.length >= 1 && studClass.length <= 3) {
     return false;
@@ -30,7 +32,7 @@ export const stuClassCheck = function (studClass) {
   }
 };
 
-export const heightCheck = function (height) {
+export const heightCheck = function (height: number) {
   if (height >= 100 && height <= 230 || height == 0) {
     return false;
   } else {
@@ -39,7 +41,7 @@ export const heightCheck = function (height) {
   }
 };
 
-export const weightCheck = function (weight) {
+export const weightCheck = function (weight: number) {
   if (weight >= 30 && weight <= 100 || weight == 0) {
     return false;
   } else {

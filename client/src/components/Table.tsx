@@ -1,17 +1,24 @@
 import TableRow from "./TableRow";
 import { isNumeric } from "../helpers/checkIsNum";
 import { Link, useNavigate } from "react-router-dom";
-const Table = ({ handleAddRows, rows, setRows,handleDeleteRow }) => {
-  const handleInputChange = (id, propName, value) => {
-    if (isNumeric(value)) {
-      value = parseInt(value);
-    }
+import { Student } from "../App";
+interface Props{
+  handleAddRows:() => void,
+  rows:Student[],
+   setRows:React.Dispatch<React.SetStateAction<Student[]>>,
+   handleDeleteRow: (id: number) => void
+}
+const Table: React.FC<Props> = ({ handleAddRows, rows, setRows,handleDeleteRow }) => {
+  const handleInputChange = (id:number, propName:string, value:string) => {
+    // if (isNumeric(value)) {
+    //   value = parseInt(value);
+    // }
     const temp = [...rows];
     temp[id] = { ...rows[id], [propName]: value };
     setRows(temp);
   };
   const navigate = useNavigate();
-  const sendToServer = async (rows) => {
+  const sendToServer = async (rows:Student[]) => {
     const response = await fetch("http://localhost:3000/save", {
       method: "post",
       headers: {
@@ -49,7 +56,7 @@ const Table = ({ handleAddRows, rows, setRows,handleDeleteRow }) => {
                   width="1em"
                   height="1em"
                   viewBox="0 0 24 24"
-                  title="Add Row"
+                  // title={"Add Row"}
                 >
                   <path
                     fill="currentColor"

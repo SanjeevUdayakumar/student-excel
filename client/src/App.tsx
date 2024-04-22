@@ -7,8 +7,15 @@ import Table from "./components/Table";
 // -- validate the input given by user
 // -- create an api to get the input from user and store it in database (Node js,MySql)
 // -- Retrieve data from database and display it has an table
-function App() {
-  const addRow = {
+export interface Student {
+  studentName: string,
+  rollNo: number,
+  class: string,
+  weight: number,
+  height: number,
+};
+const App = () => {
+  const addRow: Student = {
     studentName: "",
     rollNo: 0,
     class: "",
@@ -16,12 +23,12 @@ function App() {
     height: 0,
   };
 
-  const [rows, setRows] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [rows, setRows] = useState<Student[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const handleAddRows = () => {
     setRows([...rows, addRow]);
   };
-  const handleDeleteRow = (id) => {
+  const handleDeleteRow = (id:number) => {
     if(confirm('Can I delete the row')){
       const updatedRows = rows.filter((row,index) => index != id )
       setRows(updatedRows);

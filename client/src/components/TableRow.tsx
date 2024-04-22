@@ -1,3 +1,4 @@
+import React from "react";
 import {
   heightCheck,
   rollNumberCheck,
@@ -5,8 +6,17 @@ import {
   userNameCheck,
   weightCheck,
 } from "../validate/validate";
-
-const TableRow = ({
+interface Props{
+  handleInputChange:(id:number,propName:string,value:string) => void,
+  handleDeleteRow: (id:number) => void,
+  id:number,
+  studentName:string,
+  rollNo:number,
+  stuClass:string,
+  height:number,
+  weight:number,
+}
+const TableRow: React.FC<Props> = ({
   handleInputChange,
   handleDeleteRow,
   id,

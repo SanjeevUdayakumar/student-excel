@@ -1,4 +1,6 @@
-const TheHeader = () => {
+import React from "react";
+
+const TheHeader: React.FC = () => {
     return ( 
         <header className="flex items-center justify-between p-5">
         <h1 className="font-semibold text-3xl text-white">Student Excel</h1>
