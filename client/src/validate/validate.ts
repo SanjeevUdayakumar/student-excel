@@ -1,5 +1,5 @@
 
-export const userNameCheck = function (studentName:string) {
+export const userNameCheck = function (studentName:string):boolean {
   if(studentName == ''){
    return false;
   }
@@ -10,7 +10,7 @@ export const userNameCheck = function (studentName:string) {
   }
 };
 
-export const rollNumberCheck = function (rollNumber:number) {
+export const rollNumberCheck = function (rollNumber:number):boolean {
   if (rollNumber >= 0 && rollNumber <= 9999) {
     return false;
   } else {
@@ -18,7 +18,7 @@ export const rollNumberCheck = function (rollNumber:number) {
   }
 };
 
-export const stuClassCheck = function (studClass:string ) {
+export const stuClassCheck = function (studClass:string ):boolean {
   if(studClass == '') return false;
   if( parseInt(studClass) < 1 || parseInt(studClass) > 12) return true
     studClass +='';
@@ -29,7 +29,7 @@ export const stuClassCheck = function (studClass:string ) {
   }
 };
 
-export const heightCheck = function (height: number) {
+export const heightCheck = function (height: number):boolean {
   if (height >= 100 && height <= 230 || height == 0) {
     return false;
   } else {
@@ -37,7 +37,7 @@ export const heightCheck = function (height: number) {
   }
 };
 
-export const weightCheck = function (weight: number) {
+export const weightCheck = function (weight: number):boolean {
   if (weight >= 30 && weight <= 100 || weight == 0) {
     return false;
   } else {
