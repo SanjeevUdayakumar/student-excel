@@ -57,7 +57,6 @@ const Table: React.FC<Props> = ({ handleAddRows, rows, setRows,handleDeleteRow }
                   width="1em"
                   height="1em"
                   viewBox="0 0 24 24"
-                  // title={"Add Row"}
                 >
                   <path
                     fill="currentColor"
