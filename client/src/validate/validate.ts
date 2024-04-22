@@ -1,4 +1,3 @@
-import { isNumeric } from "../helpers/checkIsNum";
 
 export const userNameCheck = function (studentName:string) {
   if(studentName == ''){
@@ -8,7 +7,6 @@ export const userNameCheck = function (studentName:string) {
     return false;
   } else {
     return true;
-    // return "Invalid input User Name must contain 3 - 20 characters";
   }
 };
 
@@ -17,13 +15,12 @@ export const rollNumberCheck = function (rollNumber:number) {
     return false;
   } else {
     return true;
-    // return "Invalid input Roll number must within 1 - 9999";
   }
 };
 
 export const stuClassCheck = function (studClass:string ) {
   if(studClass == '') return false;
-  // if( isNumeric(studClass) && studClass > 12) return true
+  if( parseInt(studClass) < 1 || parseInt(studClass) > 12) return true
     studClass +='';
   if (studClass.length >= 1 && studClass.length <= 3) {
     return false;
@@ -37,7 +34,6 @@ export const heightCheck = function (height: number) {
     return false;
   } else {
     return true;
-    // return "Invalid input height must be within 100 - 230";
   }
 };
 
@@ -46,6 +42,5 @@ export const weightCheck = function (weight: number) {
     return false;
   } else {
     return true;
-    // return "Invalid input weight must be within 30 - 100";
   }
 };

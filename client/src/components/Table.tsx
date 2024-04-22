@@ -10,11 +10,12 @@ interface Props{
 }
 const Table: React.FC<Props> = ({ handleAddRows, rows, setRows,handleDeleteRow }) => {
   const handleInputChange = (id:number, propName:string, value:string) => {
-    // if (isNumeric(value)) {
-    //   value = parseInt(value);
-    // }
     const temp = [...rows];
-    temp[id] = { ...rows[id], [propName]: value };
+    if (isNumeric(value)) {
+      temp[id] = { ...rows[id], [propName]: parseInt(value) };
+    }else{
+      temp[id] = { ...rows[id], [propName]: value };
+    }
     setRows(temp);
   };
   const navigate = useNavigate();

@@ -1,7 +1,6 @@
-export function isNumeric(str:string) {
-    console.log(typeof str);
-    
+export function isNumeric(str:string) {    
     if (typeof str != "string") return false // we only process strings!  
-    return !isNaN(str) && 
+    const temp = parseInt(str)
+    return !isNaN(temp) && 
            !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
   }
